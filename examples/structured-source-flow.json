@@ -1,0 +1,68 @@
+{
+  "request": {
+    "request_id": "req-structured-001",
+    "capability": "operations.margin.pressure",
+    "actor_context": {
+      "principal_id": "principal-demo",
+      "user_id": "user-demo",
+      "roles": ["operations_manager"]
+    },
+    "tenant_context": {
+      "tenant_id": "tenant-demo",
+      "source_scope": ["source-sales", "source-costs"]
+    },
+    "parameters": {
+      "period": "current_month",
+      "comparison_period": "previous_month"
+    },
+    "output_mode": "compact"
+  },
+  "response": {
+    "ok": true,
+    "request_id": "req-structured-001",
+    "execution_id": "exec-structured-001",
+    "capability": "operations.margin.pressure",
+    "status": "completed",
+    "data": {
+      "entity_id": "category-demo",
+      "current_margin_rate": 0.18,
+      "comparison_margin_rate": 0.24,
+      "change": -0.06,
+      "interpretation": "El margen disminuyó mientras las ventas crecieron.",
+      "recommended_action": "Revisar costos variables y descuentos de la categoría."
+    },
+    "evidence": [
+      {
+        "evidence_id": "ev-structured-001",
+        "tenant_id": "tenant-demo",
+        "source": {
+          "source_type": "metric",
+          "source_id": "metric-margin-current",
+          "entity_id": "category-demo"
+        },
+        "modality": "calculation",
+        "title": "Margen del período actual",
+        "value": 0.18,
+        "metadata": { "unit": "rate", "period": "current_month" },
+        "observed_at": "2026-07-01T00:00:00Z",
+        "lineage": {
+          "normalization_version": "1.0.0",
+          "engine_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "execution_id": "exec-structured-001"
+        },
+        "access_scope": { "tenant_id": "tenant-demo" }
+      }
+    ],
+    "warnings": [],
+    "trace": {
+      "started_at": "2026-07-29T14:00:00Z",
+      "finished_at": "2026-07-29T14:00:01Z",
+      "contract_version": "1.0.0",
+      "engine_version": "1.0.0",
+      "policy_version": "margin-pressure-1.0.0",
+      "sources_consulted": ["source-sales", "source-costs"]
+    },
+    "error": null
+  }
+}
