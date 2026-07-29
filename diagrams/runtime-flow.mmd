@@ -1,0 +1,27 @@
+flowchart TD
+    Q[Pregunta o intención]
+    LLM1[Interpretación semántica]
+    REQ[Capability Request validado]
+    AUTH[Autenticación y autorización]
+    ROUTER[Capability Router]
+    ENG[Motor especializado]
+    SRC[Fuentes autorizadas]
+    RES[Resultado estructurado]
+    EVD[Evidencia y trazabilidad]
+    LLM2[Narrativa controlada]
+    OUT[Respuesta para Workspace o agente]
+    ERR[Error estructurado]
+
+    Q --> LLM1
+    LLM1 --> REQ
+    REQ --> AUTH
+    AUTH -->|autorizado| ROUTER
+    AUTH -->|rechazado| ERR
+    ROUTER --> ENG
+    ENG --> SRC
+    SRC --> ENG
+    ENG --> RES
+    RES --> EVD
+    RES --> LLM2
+    EVD --> LLM2
+    LLM2 --> OUT
