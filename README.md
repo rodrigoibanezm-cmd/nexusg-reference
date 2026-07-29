@@ -76,6 +76,16 @@ Los archivos de [`examples/`](examples/) muestran cómo se conectan los concepto
 - [PressureSignal](examples/pressure-signal.example.json)
 - [Cadena de evidencia](examples/evidence-chain.example.json)
 
+## Diagramas
+
+Los archivos de [`diagrams/`](diagrams/) usan Mermaid y representan la arquitectura conceptual, no una topología de despliegue.
+
+- [Contexto del sistema](diagrams/system-context.mmd)
+- [Flujo runtime](diagrams/runtime-flow.mmd)
+- [Flujo operacional](diagrams/operational-flow.mmd)
+- [Workspace y PressureBoard](diagrams/workspace-pressureboard.mmd)
+- [Linaje de evidencia](diagrams/evidence-lineage.mmd)
+
 ## Alcance
 
 Esta referencia es conceptual y normativa. Las implementaciones concretas pueden variar en tecnologías, nombres de tablas, endpoints, límites y estrategias de despliegue, siempre que respeten los principios y contratos aquí definidos.
