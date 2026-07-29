@@ -1,0 +1,24 @@
+flowchart TD
+    SRC[Fuente autorizada]
+    ITEM[Dato, mensaje o documento]
+    NORM[Representación normalizada]
+    EXEC[CapabilityExecution]
+    DER[Cálculo o clasificación]
+    POL[Contrato, motor o política versionada]
+    EVD[Evidence]
+    CLAIM[Afirmación]
+    SIG[PressureSignal]
+    NAR[Narrativa]
+
+    SRC --> ITEM
+    ITEM --> NORM
+    NORM --> EXEC
+    POL --> EXEC
+    EXEC --> DER
+    ITEM --> EVD
+    NORM --> EVD
+    DER --> EVD
+    EVD --> CLAIM
+    CLAIM --> SIG
+    CLAIM --> NAR
+    SIG --> NAR
