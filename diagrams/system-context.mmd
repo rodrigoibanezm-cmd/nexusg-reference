@@ -1,0 +1,19 @@
+flowchart LR
+    Actor[Persona o agente autorizado]
+    PB[PressureBoard]
+    WS[Workspace]
+    NX[NexusG]
+    SRC1[Fuentes estructuradas]
+    SRC2[Fuentes no estructuradas]
+    POL[Políticas y contratos versionados]
+
+    Actor --> PB
+    Actor --> WS
+    PB --> NX
+    WS --> NX
+    NX --> SRC1
+    NX --> SRC2
+    POL --> NX
+
+    NX -->|Señales priorizadas| PB
+    NX -->|Respuestas con evidencia| WS
