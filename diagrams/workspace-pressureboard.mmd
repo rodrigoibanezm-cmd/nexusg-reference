@@ -1,0 +1,20 @@
+flowchart LR
+    OPS[Preparación operacional]
+    SIG[PressureSignal persistente]
+    PB[PressureBoard]
+    ACTOR[Persona autorizada]
+    WS[Workspace]
+    CAP[Capacidades]
+    EVD[Evidencia autorizada]
+
+    OPS --> SIG
+    SIG --> PB
+    ACTOR --> PB
+    PB -->|abre una señal| WS
+    ACTOR -->|investigación libre| WS
+    WS --> CAP
+    CAP --> EVD
+    EVD --> WS
+
+    PB -. prioriza .-> SIG
+    WS -. investiga .-> SIG
