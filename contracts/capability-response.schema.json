@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reference.nexusg.cl/contracts/capability-response.schema.json",
+  "title": "NexusG Capability Response",
+  "description": "Resultado estructurado de una ejecución de capacidad.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "request_id", "execution_id", "capability", "status", "evidence", "warnings", "trace"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "execution_id": { "type": "string", "minLength": 1 },
+    "capability": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["completed", "partial", "failed"] },
+    "data": {},
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "./evidence.schema.json" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "message"],
+        "properties": {
+          "code": { "type": "string" },
+          "message": { "type": "string" },
+          "details": { "type": "object", "additionalProperties": true }
+        }
+      }
+    },
+    "trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["started_at", "finished_at", "contract_version"],
+      "properties": {
+        "started_at": { "type": "string", "format": "date-time" },
+        "finished_at": { "type": "string", "format": "date-time" },
+        "contract_version": { "type": "string" },
+        "engine_version": { "type": "string" },
+        "policy_version": { "type": "string" },
+        "sources_consulted": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "error": {
+      "anyOf": [
+        { "$ref": "./error.schema.json" },
+        { "type": "null" }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "ok": { "const": false } }, "required": ["ok"] },
+      "then": { "required": ["error"] }
+    }
+  ]
+}
