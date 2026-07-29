@@ -1,0 +1,30 @@
+{
+  "signal_id": "signal-demo-001",
+  "signal_key": "tenant-demo:location-demo:unresolved-opening-dependency",
+  "tenant_id": "tenant-demo",
+  "dimension": "operational",
+  "status": "active",
+  "priority": {
+    "level": "high",
+    "score": 82,
+    "rationale": "La dependencia sigue sin confirmación y afecta una fecha operacional cercana."
+  },
+  "title": "Dependencia sin confirmar para una apertura",
+  "summary": "Una coordinación necesaria continúa abierta y no existe confirmación final del responsable externo.",
+  "why_it_matters": "La falta de confirmación puede retrasar la habilitación y obligar a reprogramar actividades relacionadas.",
+  "recommended_action": "Confirmar responsable, compromiso y fecha límite antes de continuar con la programación.",
+  "confidence": 0.86,
+  "evidence_refs": [
+    "ev-unstructured-001",
+    "ev-unstructured-002"
+  ],
+  "context": {
+    "entity_id": "location-demo",
+    "decision_required": true,
+    "workspace_query": "Reconstruye la situación, identifica compromisos y muestra la evidencia disponible."
+  },
+  "policy_version": "operational-attention-1.0.0",
+  "created_at": "2026-07-29T14:05:02Z",
+  "updated_at": "2026-07-29T14:05:02Z",
+  "resolved_at": null
+}
