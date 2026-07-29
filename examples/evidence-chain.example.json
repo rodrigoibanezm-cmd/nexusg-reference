@@ -1,0 +1,46 @@
+{
+  "claim": {
+    "claim_id": "claim-demo-001",
+    "text": "La dependencia continúa abierta y requiere intervención.",
+    "modality": "inference"
+  },
+  "lineage": [
+    {
+      "stage": "source",
+      "reference": "source-communications"
+    },
+    {
+      "stage": "document",
+      "reference": "thread-demo-001"
+    },
+    {
+      "stage": "normalization",
+      "reference": "normalized-thread-demo-001",
+      "version": "1.0.0"
+    },
+    {
+      "stage": "semantic_classification",
+      "reference": "classification-demo-001",
+      "version": "operational-attention-1.0.0"
+    },
+    {
+      "stage": "policy",
+      "reference": "unresolved-dependency-policy",
+      "version": "1.0.0"
+    },
+    {
+      "stage": "pressure_signal",
+      "reference": "signal-demo-001"
+    }
+  ],
+  "evidence_refs": [
+    "ev-unstructured-001",
+    "ev-unstructured-002"
+  ],
+  "audit": {
+    "execution_id": "exec-unstructured-001",
+    "tenant_id": "tenant-demo",
+    "contract_version": "1.0.0",
+    "created_at": "2026-07-29T14:05:02Z"
+  }
+}
