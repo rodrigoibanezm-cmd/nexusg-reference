@@ -1,0 +1,104 @@
+{
+  "request": {
+    "request_id": "req-unstructured-001",
+    "capability": "communications.operational.discovery",
+    "actor_context": {
+      "principal_id": "principal-demo",
+      "user_id": "user-demo",
+      "roles": ["operations_manager"]
+    },
+    "tenant_context": {
+      "tenant_id": "tenant-demo",
+      "source_scope": ["source-communications"]
+    },
+    "parameters": {
+      "query": "situaciones sin respuesta que puedan afectar una apertura",
+      "retrieval_strategy": "progressive"
+    },
+    "output_mode": "compact"
+  },
+  "retrieval": {
+    "stages": [
+      "search",
+      "compact_representation",
+      "relevance_selection",
+      "detailed_retrieval",
+      "evidence_binding"
+    ],
+    "has_more": true,
+    "continuation_token": "opaque-token-demo"
+  },
+  "response": {
+    "ok": true,
+    "request_id": "req-unstructured-001",
+    "execution_id": "exec-unstructured-001",
+    "capability": "communications.operational.discovery",
+    "status": "partial",
+    "data": {
+      "finding": "Existe una conversación abierta sin confirmación final sobre una dependencia necesaria para la apertura.",
+      "semantic_classification": "unresolved_dependency",
+      "recommended_next_step": "Recuperar el hilo completo y confirmar responsable y fecha comprometida."
+    },
+    "evidence": [
+      {
+        "evidence_id": "ev-unstructured-001",
+        "tenant_id": "tenant-demo",
+        "source": {
+          "source_type": "conversation_thread",
+          "source_id": "thread-demo-001",
+          "document_id": "thread-demo-001"
+        },
+        "modality": "statement",
+        "title": "Conversación sobre dependencia de apertura",
+        "excerpt": "Seguimos pendientes de confirmación para coordinar la instalación.",
+        "metadata": {
+          "participants_count": 3,
+          "message_count": 8,
+          "has_attachments": false
+        },
+        "observed_at": "2026-07-28T18:30:00Z",
+        "lineage": {
+          "normalization_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "execution_id": "exec-unstructured-001"
+        },
+        "access_scope": { "tenant_id": "tenant-demo" }
+      },
+      {
+        "evidence_id": "ev-unstructured-002",
+        "tenant_id": "tenant-demo",
+        "source": {
+          "source_type": "semantic_output",
+          "source_id": "classification-demo-001",
+          "document_id": "thread-demo-001"
+        },
+        "modality": "semantic_classification",
+        "title": "Clasificación semántica controlada",
+        "value": "unresolved_dependency",
+        "metadata": { "taxonomy": "operational-attention" },
+        "observed_at": "2026-07-29T14:05:00Z",
+        "lineage": {
+          "policy_version": "operational-attention-1.0.0",
+          "contract_version": "1.0.0",
+          "execution_id": "exec-unstructured-001"
+        },
+        "access_scope": { "tenant_id": "tenant-demo" }
+      }
+    ],
+    "warnings": [
+      {
+        "code": "PARTIAL_RETRIEVAL",
+        "message": "La búsqueda tiene resultados adicionales disponibles.",
+        "details": { "continuation_available": true }
+      }
+    ],
+    "trace": {
+      "started_at": "2026-07-29T14:05:00Z",
+      "finished_at": "2026-07-29T14:05:02Z",
+      "contract_version": "1.0.0",
+      "policy_version": "operational-attention-1.0.0",
+      "sources_consulted": ["source-communications"]
+    },
+    "error": null
+  }
+}
