@@ -1,0 +1,27 @@
+flowchart TD
+    SRC[Fuentes autorizadas]
+    CAP[Captura]
+    RAW[Datos o documentos crudos]
+    NORM[Normalización]
+    DER[Resultados derivados]
+    EVD[Evidencia trazable]
+    SIG[PressureSignals]
+    MAT[Vistas materializadas]
+    PB[PressureBoard]
+    WS[Workspace]
+    WARN[Advertencia de cobertura]
+
+    SRC --> CAP
+    CAP --> RAW
+    RAW --> NORM
+    NORM --> DER
+    NORM --> EVD
+    DER --> EVD
+    DER --> SIG
+    EVD --> SIG
+    SIG --> MAT
+    MAT --> PB
+    PB --> WS
+    EVD --> WS
+    CAP -->|universo incompleto| WARN
+    WARN --> MAT
