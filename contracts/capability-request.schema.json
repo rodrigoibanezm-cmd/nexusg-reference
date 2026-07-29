@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reference.nexusg.cl/contracts/capability-request.schema.json",
+  "title": "NexusG Capability Request",
+  "description": "Solicitud formal para ejecutar una capacidad autorizada.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "capability", "actor_context", "tenant_context", "parameters"],
+  "properties": {
+    "request_id": { "type": "string", "minLength": 1 },
+    "capability": { "type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$" },
+    "actor_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principal_id"],
+      "properties": {
+        "principal_id": { "type": "string", "minLength": 1 },
+        "user_id": { "type": "string" },
+        "roles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "tenant_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tenant_id"],
+      "properties": {
+        "tenant_id": { "type": "string", "minLength": 1 },
+        "source_scope": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "parameters": { "type": "object", "additionalProperties": true },
+    "output_mode": { "type": "string", "enum": ["minimal", "compact", "full"], "default": "compact" },
+    "trace_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conversation_id": { "type": "string" },
+        "parent_execution_id": { "type": "string" },
+        "correlation_id": { "type": "string" }
+      }
+    }
+  }
+}
