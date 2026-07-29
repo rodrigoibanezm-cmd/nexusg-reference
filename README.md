@@ -57,6 +57,25 @@ Fuentes autorizadas
 13. [Identidad, tenancy y seguridad](docs/12-identity-tenancy-security.md)
 14. [Glosario](glossary.md)
 
+## Contratos públicos
+
+Los archivos de [`contracts/`](contracts/) son JSON Schemas declarativos. Definen formas de intercambio y no contienen implementación ejecutable.
+
+- [Solicitud de capacidad](contracts/capability-request.schema.json)
+- [Respuesta de capacidad](contracts/capability-response.schema.json)
+- [Evidencia](contracts/evidence.schema.json)
+- [PressureSignal](contracts/pressure-signal.schema.json)
+- [Error estructurado](contracts/error.schema.json)
+
+## Ejemplos
+
+Los archivos de [`examples/`](examples/) muestran cómo se conectan los conceptos sin representar datos reales ni prescribir una tecnología.
+
+- [Flujo sobre una fuente estructurada](examples/structured-source-flow.json)
+- [Flujo sobre una fuente no estructurada](examples/unstructured-source-flow.json)
+- [PressureSignal](examples/pressure-signal.example.json)
+- [Cadena de evidencia](examples/evidence-chain.example.json)
+
 ## Alcance
 
 Esta referencia es conceptual y normativa. Las implementaciones concretas pueden variar en tecnologías, nombres de tablas, endpoints, límites y estrategias de despliegue, siempre que respeten los principios y contratos aquí definidos.
